@@ -9,25 +9,32 @@ import { CovertoSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star-component/star.component';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterLink } from '@angular/router';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductListComponent,
-    CovertoSpacesPipe,
-    StarComponent,
-    ProductDetailComponent,
-    WelcomeComponent,
-  ], //Our components, directives and pipes are declared here
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot([]),
-  ], //Components, directived and pipes from other sources(external modules) are imported here
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        ProductListComponent,
+        CovertoSpacesPipe,
+        StarComponent,
+        ProductDetailComponent,
+        WelcomeComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        RouterModule.forRoot([
+            { path: 'products', component: ProductListComponent },
+            { path: 'products/:id', component: ProductDetailComponent },
+            { path: 'welcome', component: WelcomeComponent },
+            { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+            { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
+        ]),
+        RouterLink
+    ]
 })
 export class AppModule {}
