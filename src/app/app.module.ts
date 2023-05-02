@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
@@ -15,7 +15,7 @@ import { StarComponent } from './shared/star-component/star.component';
     CovertoSpacesPipe,
     StarComponent,
   ], //Our components, directives and pipes are declared here
-  imports: [BrowserModule, AppRoutingModule, FormsModule], //Components, directived and pipes from other sources(external modules) are imported here
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule], //Components, directived and pipes from other sources(external modules) are imported here
   providers: [],
   bootstrap: [AppComponent],
 })
