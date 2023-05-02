@@ -7,6 +7,9 @@ import { ProductListComponent } from './products/product-list.component';
 import { FormsModule } from '@angular/forms';
 import { CovertoSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { StarComponent } from './shared/star-component/star.component';
+import { ProductDetailComponent } from './products/product-detail.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,8 +17,16 @@ import { StarComponent } from './shared/star-component/star.component';
     ProductListComponent,
     CovertoSpacesPipe,
     StarComponent,
+    ProductDetailComponent,
+    WelcomeComponent,
   ], //Our components, directives and pipes are declared here
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule], //Components, directived and pipes from other sources(external modules) are imported here
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot([]),
+  ], //Components, directived and pipes from other sources(external modules) are imported here
   providers: [],
   bootstrap: [AppComponent],
 })
